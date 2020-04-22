@@ -25,6 +25,12 @@ const item4 = {
   enhancement: 19,
 };
 
+const item5 = {
+  name: "item5",
+  durability: 0,
+  enhancement: 0,
+};
+
 describe("enhancer.js", () => {
   describe("repair()", () => {
     it("should accept an item object and restore durability to 100", () => {
@@ -55,6 +61,18 @@ describe("enhancer.js", () => {
       fail(item4);
       expect(item4.enhancement).toBe(18);
       expect(item4.durability).toBe(90);
+    });
+  });
+
+  describe("get()", () => {
+    it("should return item name and [enhancement level] if enhancement is greater than 0", () => {
+      get(item2);
+      expect(item2.name).toBe("item2[10]");
+    });
+
+    it("should return item name untouched if enhancement is equal to 0", () => {
+      get(item5);
+      expect(item5.name).toBe("item5");
     });
   });
 });

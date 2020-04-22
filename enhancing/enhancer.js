@@ -27,5 +27,18 @@ function repair(item) {
 }
 
 function get(item) {
-  return { ...item };
+  console.log(item);
+  // return (
+  //   { ...item },
+  //   item.enhancement === 0
+  //     ? (item.name = item.name)
+  //     : item.enhancement > 0 &&
+  //       (item.name = `${item.name}[${item.enhancement}]`)
+  // );
+  if (item.enhancement === 0) {
+    return item;
+  } else {
+    item.name = `${item.name}[${item.enhancement}]`;
+    return item;
+  }
 }
