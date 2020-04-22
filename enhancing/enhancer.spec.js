@@ -14,4 +14,11 @@ describe("enhancer.js", () => {
       expect(item.durability).toBe(100);
     });
   });
+
+  describe("succeed()", () => {
+    it("should increase enhancement by one if it is less than 20", () => {
+      succeed(item);
+      expect(item.enhancement).toBe(1);
+    });
+  });
 });
